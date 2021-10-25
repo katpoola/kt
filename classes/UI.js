@@ -14,23 +14,29 @@ class UI {
 	}
 
 	addBook(book) {
+		// create table row
+		const row = document.createElement('tr');
+
 		// create title, author and ISBN
 		const title = this.addUIelement('td', 'book-title', book.title);
 		const author = this.addUIelement('td', 'book-author', book.author);
 		const isbn = this.addUIelement('td', 'book-isbn', book.isbn);
+
 		// create X
 		const link = this.addUIelement('a', 'secondary-content', 'X', {'href':'#'});
 		const delBtn = this.addUIelement('td', 'book-del');
 		delBtn.appendChild(link);
-		// create row and add the stuff
-		const row = document.createElement('tr');
+
+		// add the things to table row		
 		row.appendChild(title);
 		row.appendChild(author);
 		row.appendChild(isbn);
 		row.appendChild(delBtn);
-		// find table and add items
+
+		// find table and add items from row
 		const tableBody = document.querySelector('tbody');
 		tableBody.appendChild(row);
+
 		// find input to clear this value
 		const inputTitle = document.querySelector('#title');
 		inputTitle.value = '';
@@ -38,6 +44,7 @@ class UI {
 		inputAuthor.value = '';
 		const inputISBN = document.querySelector('#isbn');
 		inputISBN.value = '';
+
 		// log to condole
 		book.addedToUI();
 	}
@@ -53,23 +60,26 @@ class UI {
 
 	getBooks(books) {
 		for (let i = 0; i < books.length; i++) {
-		// create title, author and ISBN
-		const title = this.addUIelement('td', 'book-title', books[i].title);
-		const author = this.addUIelement('td', 'book-author', books[i].author);
-		const isbn = this.addUIelement('td', 'book-isbn', books[i].isbn);
-		// create X
-		const link = this.addUIelement('a', 'secondary-content', 'X', {'href':'#'});
-		const delBtn = this.addUIelement('td', 'book-del');
-		delBtn.appendChild(link);
-		// create row and add the stuff
-		const row = document.createElement('tr');
-		row.appendChild(title);
-		row.appendChild(author);
-		row.appendChild(isbn);
-		row.appendChild(delBtn);
-		// find table and add items
-		const tableBody = document.querySelector('tbody');
-		tableBody.appendChild(row);
+			// create title, author and ISBN
+			const title = this.addUIelement('td', 'book-title', books[i].title);
+			const author = this.addUIelement('td', 'book-author', books[i].author);
+			const isbn = this.addUIelement('td', 'book-isbn', books[i].isbn);
+			
+			// create X
+			const link = this.addUIelement('a', 'secondary-content', 'X', {'href':'#'});
+			const delBtn = this.addUIelement('td', 'book-del');
+			delBtn.appendChild(link);
+		
+			// create row and add the stuff
+			const row = document.createElement('tr');
+			row.appendChild(title);
+			row.appendChild(author);
+			row.appendChild(isbn);
+			row.appendChild(delBtn);
+		
+			// find table and add items
+			const tableBody = document.querySelector('tbody');
+			tableBody.appendChild(row);
 		}
 	}
 }

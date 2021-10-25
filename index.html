@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Raamatud</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
 	<div class="container">
@@ -14,53 +14,52 @@
       <!-- book form -->
 
       <div class="card">
-        <div class="card-content">
-          <form id="book-form">
-          	<div class="row">
-          		<div class="input-field col s12">
-						    <input id="title" type="text" required="">
+       	<div class="card-content">
+       		<form id="book-form">
+       			<div class="row">
+       				<div class="input-field col s12">
+								<input id="title" type="text" required="">
 						    <label for="title">Title</label>
-						  </div>
 						</div>
-          	<div class="row"> 
-						  <div class="input-field col s12">
-						    <input id="author" type="text" required="">
-						    <label for="author">Author</label>
-						  </div>
+					</div>
+     			<div class="row"> 
+						<div class="input-field col s12">
+							<input id="author" type="text" required="">
+							<label for="author">Author</label>
+						</div>		
+					</div>
+       		<div class="row">
+						<div class="input-field col s12">
+				    	<input id="isbn" type="text" required="">
+				    	<label for="isbn">ISBN#</label>
 						</div>
-          	<div class="row">
-						  <div class="input-field col s12">
-						    <input id="isbn" type="text" required="">
-						    <label for="isbn">ISBN#</label>
-						  </div>
+					</div>
+         		<div class="row">
+					    <input type="submit" value="SUBMIT" class="btn col s12">
 						</div>
-          	<div class="row">
-						  <input type="submit" value="SUBMIT" class="btn col s12">
-						</div>
-          </form>
-          
+         	</form> 
 
-       			<!-- table -->
+       		<!-- table -->
 
-        		<table class="highlight">
-        			<thead>
-        				<tr>
-        					<th>Title</th>
-        					<th>Author</th>
-        					<th>ISBN</th>
-        					<th></th>
-        				</tr>
-        			</thead>
-        			<tbody>
-        			</tbody>
-        		</table>
-        	</div>
+        	<table class="highlight">
+        		<thead>
+        			<tr>
+        				<th>Title</th>
+        				<th>Author</th>
+        				<th>ISBN</th>
+        				<th></th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		</tbody>
+        	</table>
+        </div>
        	</div>
       </div>
-    </div>
+   	</div>
   </div>
 	<!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <!-- classes -->
   <script src="classes/book.js"></script>
