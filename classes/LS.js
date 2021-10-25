@@ -17,7 +17,6 @@ class LS {
 	addBook(book) {
 		// set data to the LS
 		let books = this.getData('books');
-		console.log(books);
 		books.push(book);
 		this.setData('books', books);
 		// log to console
@@ -27,7 +26,7 @@ class LS {
 	delBook(book) {
 		let books = this.getData('books');
 		books.forEach(function(booksElement, booksIndex) {
-			if (booksElement.name === book) {
+			if (booksElement.title === book) {
 				books.splice(booksIndex, 1);
 			}
 		});

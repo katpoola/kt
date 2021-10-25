@@ -31,11 +31,10 @@ function addBook(e) {
 function delBook(e) {
 	// get book name
 	let book = e.target.parentElement.parentElement;
-	console.log(book);
 	// delete book value from visual by UI object
 	ui.delBook(book);
 	// change book element content before deleting from LS
-	book = book.textContent;
+	book = book.firstChild.textContent;
 	// delete book value from LS by LS object 
 	ls.delBook(book);
 }
@@ -43,7 +42,6 @@ function delBook(e) {
 function getBooks(e) {
 	// get books from LS by this name
 	books = ls.getData('books');
-	console.log(books);
 	// create task list by UI
 	ui.getBooks(books);
 }
