@@ -9,8 +9,8 @@ const authorInput = document.querySelector('#author');
 const isbnInput = document.querySelector('#isbn')
 
 // taskList X click event
-const bookTable = document.querySelector('tbody');
-bookTable.addEventListener('click', delBook);
+const bookData = document.querySelector('tbody');
+bookData.addEventListener('click', delBook);
 
 // page reload
 document.addEventListener('DOMContentLoaded', getBooks);
@@ -30,7 +30,8 @@ function addBook(e) {
 
 function delBook(e) {
 	// get book name
-	let book = e.target.parentElement.firstChild;
+	let book = e.target.parentElement.parentElement;
+	console.log(book);
 	// delete book value from visual by UI object
 	ui.delBook(book);
 	// change book element content before deleting from LS
@@ -42,6 +43,7 @@ function delBook(e) {
 function getBooks(e) {
 	// get books from LS by this name
 	books = ls.getData('books');
+	console.log(books);
 	// create task list by UI
 	ui.getBooks(books);
 }

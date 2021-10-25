@@ -15,60 +15,61 @@ class UI {
 
 	addBook(book) {
 		// create title, author and ISBN
-		const title = this.addUIelement('th', 'book-title', book.title);
-		const author = this.addUIelement('th', 'book-author', book.author);
-		const isbn = this.addUIelement('th', 'book-isbn', book.isbn);
+		const title = this.addUIelement('td', 'book-title', book.title);
+		const author = this.addUIelement('td', 'book-author', book.author);
+		const isbn = this.addUIelement('td', 'book-isbn', book.isbn);
 		// create X
-		const link = this.addUIelement('a', 'the-x', 'X', {'href':'#'});
-		// add X to book 
-		const delX = this.addUIelement('th', 'delBtn', link);
-		// find table to add the book item
-		const tableBody = document.querySelector('table');
-		// new row at the end of the table
-		var row = tableBody.insertRow();
-		// new cell at the end of the row
-		var cell = row.insertCell();
-		// text node to the cell
-		cell.appendChild(delX);
+		const link = this.addUIelement('a', 'secondary-content', 'X', {'href':'#'});
+		const delBtn = this.addUIelement('td', 'book-del');
+		delBtn.appendChild(link);
+		// create row and add the stuff
+		const row = document.createElement('tr');
+		row.appendChild(title);
+		row.appendChild(author);
+		row.appendChild(isbn);
+		row.appendChild(delBtn);
+		// find table and add items
+		const tableBody = document.querySelector('tbody');
+		tableBody.appendChild(row);
 		// find input to clear this value
 		const inputTitle = document.querySelector('#title');
-		const inputAuthor = document.querySelector('#author');
-		const inputISBN = document.querySelector('#isbn');
 		inputTitle.value = '';
+		const inputAuthor = document.querySelector('#author');
 		inputAuthor.value = '';
+		const inputISBN = document.querySelector('#isbn');
 		inputISBN.value = '';
 		// log to condole
 		book.addedToUI();
 	}
 
 	delBook(book) {
-		const delIcon = book.nextSibling;
-		if (delIcon.textContent == "X") {
+		const delIcon = book;
+		if (delIcon.lastChild.textContent == "X") {
 			if (confirm('Do you want to delete this book?')) {
-				book.parentElement.remove();
+				delIcon.remove();
 			}
 		}
 	}
 
 	getBooks(books) {
 		for (let i = 0; i < books.length; i++) {
-			// create items
-			const title = this.addUIelement('th', 'book-title', books[i].title);
-			const author = this.addUIelement('th', 'book-author', books[i].author);
-			const isbn = this.addUIelement('th', 'book-isbn', books[i].isbn);
-			// add X to book 
-			const delX = this.addUIelement('th', 'delBtn', link);
-			// find table to add the book item
-			const tableBody = document.querySelector('table');
-			// new row at the end of the table
-			var row = tableBody.insertRow();
-			// new cell at the end of the row
-			var cell = row.insertCell();
-			// text node to the cell
-			cell.appendChild(delX);
-			// find table body to add created book item
-			const tableBody = document.querySelector('tbody');
-			tableBody.appendChild(book);
+		// create title, author and ISBN
+		const title = this.addUIelement('td', 'book-title', books[i].title);
+		const author = this.addUIelement('td', 'book-author', books[i].author);
+		const isbn = this.addUIelement('td', 'book-isbn', books[i].isbn);
+		// create X
+		const link = this.addUIelement('a', 'secondary-content', 'X', {'href':'#'});
+		const delBtn = this.addUIelement('td', 'book-del');
+		delBtn.appendChild(link);
+		// create row and add the stuff
+		const row = document.createElement('tr');
+		row.appendChild(title);
+		row.appendChild(author);
+		row.appendChild(isbn);
+		row.appendChild(delBtn);
+		// find table and add items
+		const tableBody = document.querySelector('tbody');
+		tableBody.appendChild(row);
 		}
 	}
 }

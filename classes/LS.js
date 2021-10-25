@@ -17,6 +17,7 @@ class LS {
 	addBook(book) {
 		// set data to the LS
 		let books = this.getData('books');
+		console.log(books);
 		books.push(book);
 		this.setData('books', books);
 		// log to console
